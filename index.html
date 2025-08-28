@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TesteAcademie.ro — Simulări grilă & pregătire pentru Academia de Poliție</title>
+    <meta name="description" content="Simulări grilă, materiale de învățare și simulări de examen pentru admiterea la Academia de Poliție. Abonamente Silver, Gold, Platinum." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root{color-scheme:light dark}
+      html{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji"}
+      .glass{backdrop-filter:saturate(180%) blur(10px); background:rgba(255,255,255,.6)}
+      .container{max-width:1100px}
+    </style>
+  </head>
+  <body class="bg-gradient-to-b from-slate-50 to-white text-slate-800">
+    <!-- NAV -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/60 bg-white/80 glass">
+      <nav class="container mx-auto flex items-center justify-between px-4 py-3">
+        <a href="#acasa" class="flex items-center gap-2 font-extrabold text-slate-900 text-xl">TesteAcademie<span class="text-blue-600">.ro</span></a>
+        <ul class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+          <li><a href="#tematica" class="hover:text-blue-600">Tematică</a></li>
+          <li><a href="#caracteristici" class="hover:text-blue-600">Platformă</a></li>
+          <li><a href="#preturi" class="hover:text-blue-600">Abonamente</a></li>
+          <li><a href="#faq" class="hover:text-blue-600">Întrebări</a></li>
+        </ul>
+        <div class="flex items-center gap-3">
+          <a href="#autentificare" class="text-sm font-semibold hover:text-blue-600">Autentificare</a>
+          <a href="#creeaza-cont" class="rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">Creează cont</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="acasa" class="container mx-auto px-4 pt-14 pb-10">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-slate-900">Pregătire de top pentru <span class="text-blue-600">Academia de Poliție</span></h1>
+          <p class="mt-4 text-lg text-slate-600">Teste grilă inteligente, simulări complete și materiale de învățare aliniate <em>tematicii oficiale</em>. Alege abonamentul potrivit și intră în ritmul de pregătire.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#preturi" class="rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold shadow hover:bg-blue-700">Vezi abonamente</a>
+            <a href="#tematica" class="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">Tematică oficială</a>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">*Testele sunt originale, construite pe baza tematicii publicate de instituțiile oficiale. Nu afiliem platforma la nicio instituție publică.</p>
+        </div>
+        <div class="relative">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-slate-500">Simulare</p>
+                <p class="font-bold">Limba Română · 30 grile</p>
+              </div>
+              <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">90% corect</span>
+            </div>
+            <div class="mt-4 h-2 w-full rounded-full bg-slate-100">
+              <div class="h-2 rounded-full bg-blue-600" style="width: 90%"></div>
+            </div>
+            <ul class="mt-6 grid grid-cols-2 gap-3 text-sm">
+              <li class="rounded-xl border border-slate-200 p-3">Explicații la răspunsuri</li>
+              <li class="rounded-xl border border-slate-200 p-3">Cronometru & scor</li>
+              <li class="rounded-xl border border-slate-200 p-3">Salvare progres</li>
+              <li class="rounded-xl border border-slate-200 p-3">Simulări săptămânale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="caracteristici" class="border-y border-slate-200 bg-slate-50/50">
+      <div class="container mx-auto grid gap-8 px-4 py-14 md:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-bold">Teste grilă & simulări</h3>
+          <p class="mt-2 text-slate-600">Baterii variate de teste, generare automată și simulări în formatul de concurs. Feedback instant și explicații concise.</p>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-bold">Materiale de învățare</h3>
+          <p class="mt-2 text-slate-600">Sinteze pe capitole (Română, Istorie) + antrenament pentru limba străină (EN/FR/DE). Actualizate periodic.</p>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-bold">Progres & statistici</h3>
+          <p class="mt-2 text-slate-600">Păstrează istoricul testelor, vezi punctajul mediu și evoluția pe capitole. Ideal pentru o pregătire constantă.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYLLABUS (short) -->
+    <section id="tematica" class="container mx-auto px-4 py-14">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-extrabold text-slate-900">Tematică — Facultatea de Poliție</h2>
+        <p class="mt-3 text-slate-600">Structurăm testele după tematica oficială pentru proba scrisă: Limba română, Istorie și o limbă străină (EN/FR/DE). Mai jos — o privire de ansamblu:</p>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 p-5">
+            <h3 class="font-bold">Limba română</h3>
+            <ul class="mt-2 list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Fonetică, ortografie, părți de vorbire (substantiv, pronume, verb etc.)</li>
+              <li>Sintaxă: propoziții, subordonate, acord, topica</li>
+              <li>Vocabular: sinonime/antonime, familie de cuvinte, paronime</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-5">
+            <h3 class="font-bold">Istorie</h3>
+            <ul class="mt-2 list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Popoare & spații istorice; Statul și politica (sec. IX–XX)</li>
+              <li>Secolul XX — democrație vs. totalitarism; Constituțiile României</li>
+              <li>Relații internaționale: Ev Mediu → „Războiul rece”</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-5">
+            <h3 class="font-bold">Limba engleză/franceză/germană</h3>
+            <ul class="mt-2 list-disc pl-5 text-sm text-slate-700 space-y-1">
+              <li>Morfologie: substantive, adjective, verbe, adverbe, numerale</li>
+              <li>Sintaxă: propoziții, condiționale, vorbire directă/indirectă</li>
+              <li>Lexic: colocății, expresii, familii de cuvinte; traducere</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-slate-500">*Tematica completă este disponibilă în documentele oficiale. Testele noastre urmează strict aceste capitole.</p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="preturi" class="border-y border-slate-200 bg-slate-50/50">
+      <div class="container mx-auto px-4 py-14">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-slate-900">Abonamente</h2>
+          <p class="mt-2 text-slate-600">Alege nivelul potrivit. Poți face upgrade oricând.</p>
+        </div>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <!-- SILVER -->
+          <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 flex flex-col">
+            <h3 class="text-lg font-bold">Silver</h3>
+            <p class="mt-1 text-3xl font-extrabold">100 lei<span class="text-base font-semibold text-slate-500"> / lună</span></p>
+            <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-700">
+              <li>✔️ 5 simulări/zi (Română/Engleză/Franceză/Germană/Istorie)</li>
+              <li>✔️ Feedback instant & scor</li>
+              <li>✖️ Materiale de învățare (nu sunt incluse)</li>
+              <li>✖️ Simulări săptămânale</li>
+            </ul>
+            <a href="#creeaza-cont" class="mt-6 rounded-xl bg-slate-900 px-4 py-3 text-center font-semibold text-white hover:bg-black">Alege Silver</a>
+          </div>
+          <!-- GOLD -->
+          <div class="rounded-3xl bg-white p-6 shadow-md border-2 border-blue-600 flex flex-col relative">
+            <span class="absolute -top-3 right-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Recomandat</span>
+            <h3 class="text-lg font-bold">Gold</h3>
+            <p class="mt-1 text-3xl font-extrabold text-blue-700">150 lei<span class="text-base font-semibold text-slate-500"> / lună</span></p>
+            <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-700">
+              <li>✔️ 25 simulări/zi + generare test</li>
+              <li>✔️ Materiale de învățare (sinteze & fișe)</li>
+              <li>✔️ Simulări săptămânale cronometrate</li>
+              <li>✔️ Istoric punctaje & progres</li>
+            </ul>
+            <a href="#creeaza-cont" class="mt-6 rounded-xl bg-blue-600 px-4 py-3 text-center font-semibold text-white hover:bg-blue-700">Alege Gold</a>
+          </div>
+          <!-- PLATINUM -->
+          <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 flex flex-col">
+            <h3 class="text-lg font-bold">Platinum</h3>
+            <p class="mt-1 text-3xl font-extrabold">300 lei<span class="text-base font-semibold text-slate-500"> / lună</span></p>
+            <ul class="mt-4 flex-1 space-y-2 text-sm text-slate-700">
+              <li>✔️ Teste & simulări <strong>nelimitate</strong></li>
+              <li>✔️ Toate materialele + explicații la grile</li>
+              <li>✔️ Rapoarte avansate & recomandări</li>
+              <li>✔️ Prioritate suport</li>
+            </ul>
+            <a href="#creeaza-cont" class="mt-6 rounded-xl bg-slate-900 px-4 py-3 text-center font-semibold text-white hover:bg-black">Alege Platinum</a>
+          </div>
+        </div>
+        <p class="mt-4 text-center text-xs text-slate-500">Prețurile includ TVA. Plățile vor fi procesate securizat (card). Te poți dezabona oricând.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container mx-auto px-4 py-14">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-extrabold text-slate-900">Întrebări frecvente</h2>
+        <div class="mt-6 space-y-6">
+          <details class="rounded-2xl border border-slate-200 p-5" open>
+            <summary class="cursor-pointer text-lg font-semibold">Cum accesez platforma?</summary>
+            <p class="mt-2 text-slate-600">Îți creezi cont, alegi abonamentul și începi imediat simulările. Conținutul se deblochează automat conform nivelului ales.</p>
+          </details>
+          <details class="rounded-2xl border border-slate-200 p-5">
+            <summary class="cursor-pointer text-lg font-semibold">Pot trece la un abonament superior?</summary>
+            <p class="mt-2 text-slate-600">Da, oricând. Diferența se ajustează proporțional pentru perioada rămasă.</p>
+          </details>
+          <details class="rounded-2xl border border-slate-200 p-5">
+            <summary class="cursor-pointer text-lg font-semibold">Ce include „materiale de învățare”?</summary>
+            <p class="mt-2 text-slate-600">Sinteze pe capitole, fișe de recapitulare și exemple de grile explicate, pentru Română, Istorie și limbile străine.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4 py-6 text-sm text-slate-600">
+        <p>© <span id="year"></span> TesteAcademie.ro — Toate drepturile rezervate.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-blue-600">Termeni</a>
+          <a href="#" class="hover:text-blue-600">Confidențialitate</a>
+          <a href="#" class="hover:text-blue-600">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
