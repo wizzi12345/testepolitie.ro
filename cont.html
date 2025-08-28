@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cont | TesteAcademie.ro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>html{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial}</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="border-b border-slate-200 bg-white">
+    <nav class="container mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="flex items-center gap-2 font-extrabold text-slate-900 text-xl">TesteAcademie<span class="text-blue-600">.ro</span></a>
+      <div class="flex items-center gap-3">
+        <a id="btn-simulare" href="/simulare-multi.html" class="hidden rounded-2xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">Începe simulare</a>
+        <button id="btn-signout" class="hidden rounded-2xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">Delogare</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+    <!-- CARD: LOGIN -->
+    <section id="card-login" class="max-w-lg mx-auto rounded-3xl bg-white p-6 shadow-sm border border-slate-200">
+      <h1 class="text-2xl font-extrabold">Autentificare</h1>
+      <p class="mt-2 text-slate-600 text-sm">Primești un link de conectare pe email (fără parolă).</p>
+      <form id="form-login" class="mt-5 space-y-3">
+        <label class="block text-sm font-medium">Email</label>
+        <input id="email" type="email" required placeholder="ex: nume@domeniu.ro" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" />
+        <button class="w-full rounded-xl bg-blue-600 px-4 py-3 text-white font-semibold hover:bg-blue-700">Trimite link de conectare</button>
+      </form>
+      <p id="login-msg" class="mt-3 text-sm text-emerald-700 hidden">Ți-am trimis un link. Verifică emailul.</p>
+    </section>
+
+    <!-- CARD: ACCOUNT -->
+    <section id="card-account" class="hidden max-w-3xl mx-auto mt-8 grid gap-6 md:grid-cols-5">
+      <div class="md:col-span-3 rounded-3xl bg-white p-6 shadow-sm border border-slate-200">
+        <h2 class="text-xl font-bold">Contul meu</h2>
+        <dl class="mt-3 grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-slate-500">Email</dt><dd id="acc-email" class="font-semibold">—</dd></div>
+          <div><dt class="text-slate-500">Abonament</dt><dd id="acc-tier" class="font-semibold">—</dd></div>
+          <div><dt class="text-slate-500">Status</dt><dd id="acc-status" class="font-semibold">—</dd></div>
+          <div><dt class="text-slate-500">Expiră la</dt><dd id="acc-exp" class="font-semibold">—</dd></div>
+        </dl>
+
+        <div class="mt-6">
+          <h3 class="font-semibold">Acces rapid</h3>
+          <div class="mt-3 flex flex-wrap gap-3">
+            <a href="/simulare-multi.html" class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">Simulare</a>
+            <a href="/materiale.html" class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">Materiale</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 rounded-3xl bg-white p-6 shadow-sm border border-slate-200">
+        <h2 class="text-xl font-bold">Abonamente</h2>
+        <p class="mt-2 text-sm text-slate-600">Upgrade sau reînnoire prin Stripe Checkout.</p>
+        <div class="mt-4 space-y-2">
+          <a id="link-silver" href="#" target="_blank" class="block rounded-xl border px-4 py-3 text-sm font-semibold hover:bg-slate-50">Silver — 100 lei/lună</a>
+          <a id="link-gold" href="#" target="_blank" class="block rounded-xl border px-4 py-3 text-sm font-semibold hover:bg-slate-50">Gold — 150 lei/lună</a>
+          <a id="link-platinum" href="#" target="_blank" class="block rounded-xl border px-4 py-3 text-sm font-semibold hover:bg-slate-50">Platinum — 300 lei/lună</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">După plată, abonamentul se activează automat.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="container mx-auto px-4 py-6 text-sm text-slate-600">© <span id="year"></span> TesteAcademie.ro</div>
+  </footer>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co'
+    const SUPABASE_ANON = 'YOUR_PUBLIC_ANON_KEY'
+
+    const STRIPE_LINK_SILVER = 'https://buy.stripe.com/your_silver_link?success_url='+encodeURIComponent(location.origin+'/success.html')+'&cancel_url='+encodeURIComponent(location.origin+'/cancel.html')
+    const STRIPE_LINK_GOLD   = 'https://buy.stripe.com/your_gold_link?success_url='+encodeURIComponent(location.origin+'/success.html')+'&cancel_url='+encodeURIComponent(location.origin+'/cancel.html')
+    const STRIPE_LINK_PLAT   = 'https://buy.stripe.com/your_platinum_link?success_url='+encodeURIComponent(location.origin+'/success.html')+'&cancel_url='+encodeURIComponent(location.origin+'/cancel.html')
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON)
+
+    const el = (id) => document.getElementById(id)
+    const show = (id) => el(id).classList.remove('hidden')
+    const hide = (id) => el(id).classList.add('hidden')
+
+    document.getElementById('year').textContent = new Date().getFullYear()
+
+    el('link-silver').href = STRIPE_LINK_SILVER
+    el('link-gold').href = STRIPE_LINK_GOLD
+    el('link-platinum').href = STRIPE_LINK_PLAT
+
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.user) {
+        hide('card-login'); show('card-account'); show('btn-signout'); show('btn-simulare')
+        document.getElementById('acc-email').textContent = session.user.email
+        await refreshSubscription()
+      } else {
+        show('card-login'); hide('card-account'); hide('btn-signout'); hide('btn-simulare')
+      }
+    })
+
+    document.body.addEventListener('click', async (e)=>{
+      if(e.target && e.target.id==='btn-signout'){
+        await supabase.auth.signOut(); location.reload()
+      }
+    })
+
+    document.getElementById('form-login').addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const email = document.getElementById('email').value.trim()
+      const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin + window.location.pathname }})
+      if (error) alert(error.message); else document.getElementById('login-msg').classList.remove('hidden')
+    })
+
+    async function refreshSubscription(){
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return
+      const { data, error } = await supabase
+        .from('subscriptions')
+        .select('tier,status,current_period_end')
+        .eq('user_id', user.id)
+        .order('updated_at', { ascending:false })
+        .limit(1)
+        .maybeSingle()
+
+      if (error) { console.error(error); return }
+
+      const tier = data?.tier || 'free'
+      const status = data?.status || '—'
+      const exp = data?.current_period_end ? new Date(data.current_period_end).toLocaleString('ro-RO') : '—'
+
+      document.getElementById('acc-tier').textContent = tier
+      document.getElementById('acc-status').textContent = status
+      document.getElementById('acc-exp').textContent = exp
+    }
+  </script>
+</body>
+</html>
